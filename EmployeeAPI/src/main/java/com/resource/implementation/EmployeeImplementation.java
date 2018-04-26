@@ -1,5 +1,6 @@
 package com.resource.implementation;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
@@ -13,29 +14,31 @@ import com.resource.operations.EmployeeOpearations;
 
 @Path("/employee")
 public class EmployeeImplementation implements EmployeeOpearations {
-
+	public static List<Employee> myemp = new ArrayList<Employee>();
 	
 	@GET
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public List<Employee> getEmployee() {
 		// TODO Auto-generated method stub
-		return null;
+		return myemp;
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
-	public void createEmployee() {
+	public void createEmployee(Employee emp) {
 		// TODO Auto-generated method stub
+		Employee newemp = new Employee();
+		newemp.setFname(emp.getFname());
 		
 	}
 
 	@GET
 	public List<Employee> getAllEmployee() {
 		// TODO Auto-generated method stub
-		return null;
+		return myemp;
 	}
 
-	public void updateEmployee() {
+	public void updateEmployee(Employee emp) {
 		// TODO Auto-generated method stub
 
 	}
